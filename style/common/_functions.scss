@@ -1,0 +1,35 @@
+@function get-color($type) {
+    @if map-has-key($colors, $type) {
+        @return map-get($colors, $type);
+    }
+    @error '[#{$type}], Unknown color type';
+}
+
+@function get-color-bg($type) {
+    @if map-has-key($colors-bg, $type) {
+        @return map-get($colors-bg, $type);
+    }
+    @error '[#{$type}], Unknown bg color type';
+}
+
+@function get-width($type) {
+    @if map-has-key($widths, $type) {
+        @return map-get($widths, $type);
+    }
+    @error '[#{$type}], Unknown width type';
+}
+
+@function get-gap($type) {
+    @if map-has-key($gaps, $type) {
+        @return map-get($gaps, $type);
+    }
+    @error '[#{$type}], Unknown gap type';
+}
+
+@function calc-alignment($type) {
+    @return calc(50% - #{get-width($type) / 2});
+}
+
+@function calc-object-width($type, $columns, $span) {
+    @return get-gap($type) * ($span - 1) + $span * (get-width($type) - get-gap($type) * ($columns - 1)) / $columns;
+}

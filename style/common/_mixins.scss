@@ -1,0 +1,28 @@
+@mixin text($type, $weight, $size, $height) {
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    color: get-color($type);
+}
+
+// миксин для определения границы перестройки сайта в соответствии с минимальным размером макета и зазоров
+// mixin to rebuild the site according to the layout frontier and the gaps
+//
+// пример / example:
+//
+// frontier(1200px, 20px) {
+//     ...
+// }
+//
+// это тоже самое что и: / this is same:
+//
+// @media (max-width: 1240px) {
+//     ...
+// }
+//
+@mixin frontier($layout_size, $min_padding) {
+    @media (max-width: ($layout_size + 2 * $min_padding)) {
+        @content
+    }
+}

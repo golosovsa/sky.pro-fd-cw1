@@ -1,0 +1,163 @@
+.section {
+
+    &_main {
+        background-image: url(./../img/bg-main.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 735px;
+    }
+
+    &__header {
+    
+        &_main {
+            margin-top: 64px;
+            max-width: 760px;
+        }
+    }
+
+    &__text {
+        
+
+        &_accent {
+            @include text("accent", 400, 24px, 32px)
+        }
+
+        &_main {
+            margin-top: 16px;
+        }
+    }
+
+    &__link {
+        margin-top: 16px;
+        width: fit-content;
+
+        &_accent {
+            @include text("accent", 400, 16px, 24px);
+            text-decoration: underline;
+            transition: color 0.3s;
+            
+            &:hover {
+                @include text("primary", 400, 16px, 24px);
+            }
+        }
+
+        &_main {
+            margin-top: 16px;
+            width: fit-content;
+        }
+    }
+}
+
+.for {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: get-gap("desktop");
+
+    &__item {
+        width: 100%;
+        height: 415px;
+        border-radius: 5px;
+        grid-column: span 4;
+        display: flex;
+        align-content: stretch;
+        justify-content: stretch;
+
+        &_big {
+            grid-column: span 6;
+        }
+
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                background-image: url(./../img/for/for-#{$i}.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+
+    &__header {
+        @include text("accent", 600, 34px, 41px);    
+        box-sizing: border-box;
+        width: 100%;
+        text-transform: uppercase;
+        text-align: center;
+        padding-top: 160px;
+        
+        &:hover {
+            animation: fade-out 1s ease-out both;
+        }
+    }
+}
+
+.product {
+    // box-sizing: border-box;
+    width: calc-object-width("desktop", 12, 4);
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s,
+                box-shadow 0.3s;
+
+    &__inner {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        gap: get-gap("desktop");
+    }
+
+    &__icons {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 26px;
+        position: absolute;
+        right: 12px;
+        top: 13px;
+    }
+
+    &__img {
+        box-sizing: border-box;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    &__header {
+        @include text("primary", 500, 24px, 29px);
+        margin-top: 10px;
+    }
+
+    &__text {
+        @include text("info", 400, 14px, 17px);
+        margin-top: 9px;
+        padding-right: 10px;
+    }
+
+    &__prices {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: get-gap("desktop");
+        justify-content: flex-start;
+        justify-items: flex-start;
+    } 
+
+    &__price {
+        @include text("primary", 500, 24px, 29px);
+        margin-top: 12px;
+        padding-bottom: 9px;
+
+        &_old {
+            @include text("info", 500, 24px, 29px);
+            text-decoration: line-through;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 4px 4px 4px get-color("weak"),
+                    // -4px -4px 4px get-color("weak"),
+                    // -4px 4px 4px get-color("weak"),
+                    // 4px -4px 4px get-color("weak");
+                    
+    }
+}

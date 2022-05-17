@@ -1,0 +1,58 @@
+@include frontier(get-width("desktop"), get-gap("desktop") / 2) {
+
+    /* style.scss */
+
+    .section {
+        padding-left: calc-alignment("tablet");
+        padding-right: calc-alignment("tablet");
+    }
+
+    .footer {
+
+        &_for {
+            grid-template-columns: repeat(8, 1fr);
+            column-gap: get-gap("tablet");
+        }
+
+        &__item {
+
+            &_display {
+                display: none;
+            }
+        }
+    }
+
+    /* _main.scss */
+
+    .for {
+        gap: get-gap("tablet");
+
+        &__item {
+            height: 268px;
+        }
+
+        &__header {
+            padding-top: 90px;
+        }
+    }
+
+    .product {
+        width: calc-object-width("tablet", 8, 4);
+
+        &__inner {
+            gap: get-gap("tablet");
+        }
+    }
+
+    /* _catalog.scss */
+
+    /* _cart.scss */
+
+    .section {
+
+        &_purchases {
+            row-gap: 64px;
+            grid-template-columns: repeat(8, 1fr);
+        }
+    }
+}

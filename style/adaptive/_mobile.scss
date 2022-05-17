@@ -1,0 +1,277 @@
+@include frontier(get-width("tablet"), get-gap("tablet") / 2) {
+
+    /* style.scss */
+
+    .section {
+        padding-left: 16px;
+        padding-right: 16px;
+
+        &__item {
+
+            &_allign {
+                align-items: center;
+            }
+        }
+
+        &__header {
+            @include text("primary", 600, 24px, 29px);
+
+
+            &_big {
+                @include text("accent", 600, 48px, 59px);
+            }
+        }
+
+        &_content {
+            margin-top: 32px;
+        }
+
+        &_footer {
+            margin-top: 32px;
+        }
+    }
+
+    .top {
+        height: 57px;
+        margin-top: 32px;
+        border: none;
+
+        &__logo {
+            width: 99px;
+            height: 22px;
+        }
+
+        &__input {
+            display: none;
+        }
+
+        &__menu {
+            display: none;
+
+            &_mobile {
+                display: flex;
+            }
+        }
+    }
+
+    .footer {
+
+        &_for {
+            grid-template-columns: repeat (4, 1fr);
+        }
+
+        &__item {
+            row-gap: 32px;
+
+            &_for {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: get-gap("mobile");
+            }
+
+            &_display {
+                display: none;
+            }
+
+            &_cols {
+                grid-column: span 4;
+                margin: auto;
+            }
+        }
+    }
+
+    /* _main.scss */
+
+    .section {
+        
+        &__header {
+
+            &_main {
+                text-align: center;
+                margin-top: 29px;
+                padding: 0;    
+            }
+        }
+
+        &__text {    
+
+            &_accent {
+                @include text("accent", 400, 16px, 32px);
+            }
+
+            &_main {
+                text-align: center;
+                margin-top: 16px;
+                width: auto;
+            }
+        }
+
+        &__link {
+            
+            &_accent {
+                @include text("accent", 400, 14px, 24px);
+            }
+        }
+
+        &_main {
+            background-position: 40% 0;
+            padding-top: 16px;
+        }
+    }
+
+    .for {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+
+        &__item {
+            height: 375px;
+
+            &_big {
+                height: 244px;
+                grid-column: span 4;
+            }
+        }
+
+        &__header {
+            @include text("accent", 600, 28px, 34px);
+
+            &_big {
+                padding-top: 160px;
+            }
+        }
+    }
+
+    .product {
+        width: 100%;
+
+        &__header {
+            @include text("primary", 500, 18px, 22px)
+        }
+
+        &__price {
+            @include text("primary", 500, 18px, 22px);
+
+            &_old {
+                @include text("info", 500, 18px, 22px);
+            }
+        }
+    }
+
+    /* _catalog.scss */
+
+    .section {
+
+        &__header {
+
+            &_catalog {
+                @include text("accent", 600, 48px, 59px);
+                margin-top: 82;
+            }
+        }
+
+        &_catalog {
+            background-position: 28% 0;
+        }
+
+        &_breadcrumbs {
+            background-position: 28% 0;
+            margin-top: 32px;
+            margin-bottom: 0;
+        }
+    }
+
+    .breadcrumbs {
+
+        &__link {
+            @include text("primary", 400, 14px, 32px);
+
+            &:hover {
+                @include text("primary", 400, 14px, 32px);
+            }
+        }
+
+        &__sep {
+            @include text("primary", 400, 14px, 32px);
+        }
+    }
+
+    .sorter {
+
+        &__text {
+            @include text("primary", 400, 14px, 17px);
+        }
+
+        &__select {
+            @include text("primary", 400, 14px, 17px);
+            padding-left: 6px;
+        }
+    }
+
+    /* _cart.scss */
+
+    .section {
+
+        &__header {
+
+            &_cart {
+                margin-top: 82px;
+            }
+        }
+
+        &_purchases {
+            row-gap: 64px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .purchase {
+        grid-column: span 4;
+        grid-template-columns: repeat(3, 1fr) 71px;
+        gap: 19px;
+        padding-top: 18px;
+        padding-bottom: 24px;
+
+        &__inner {
+            grid-column: span 4;
+        }
+
+        &__header {
+            display: none;
+        }
+
+        &__img {
+            display: none;
+        }
+
+        &__info {
+            grid-column: span 3;
+            row-gap: 8px;
+        }
+
+        &__empty {
+            display: none;
+        }
+
+        &__number {
+            width: 71px;
+        }
+
+        &__title {
+            @include text("primary", 500, 18px, 22px);
+        }
+
+        &__text {
+            @include text("info", 400, 12px, 15px);
+        }
+
+        &__price {
+            @include text("primary", 500, 14px, 17px);
+        }
+
+        &__fbutton {
+            @include text("primary", 400, 12px, 15px);
+        }
+    }
+
+
+}

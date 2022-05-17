@@ -1,0 +1,321 @@
+@import "./common/reset";
+@import "./common/fonts";
+@import "./common/vars";
+@import "./common/functions";
+@import "./common/mixins";
+
+@import "./animation/keyframes";
+
+@import "./main";
+@import "./catalog";
+@import "./cart";
+
+.section {
+    font-family: $font-main;
+    padding-left: calc-alignment("desktop");
+    padding-right: calc-alignment("desktop");
+
+    &__item {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        @include text("primary", 600, 48px, 59px);
+        padding-bottom: 32px;
+
+        &_big {
+            @include text("accent", 600, 64px, 70px);
+        }
+    }
+
+    &__link {
+        @include text("primary", 400, 16px, 24px);
+        text-decoration: underline;
+
+        &:hover {
+            @include text("primary", 400, 16px, 24px);
+            text-decoration: underline;
+        }
+
+        &_accent {
+            @include text("accent", 400, 16px, 24px);
+        }
+    }
+
+    &_footer {
+        margin-top: 64px;
+        padding-top: 32px;
+        padding-bottom: 40px;
+        background-color: get-color-bg(accent);
+    }
+
+    &_content {
+        margin-top: 64px;
+    }
+
+    &_links {
+        margin-top: 32px;
+    }
+}
+
+.vector {
+    box-sizing: border-box;
+
+    &__link {
+        display: flex;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__svg {
+        box-sizing: border-box;
+
+        &_accent {
+            fill: get-color("accent");
+            transition: fill 0.3s;
+
+            &:hover {
+                fill: get-color("primary");
+            }
+        }
+
+        &_info {
+            fill: get-color("info");
+            transition: fill 0.3s;
+
+            &:hover {
+                fill: get-color("primary");
+            }
+        }
+
+        &_weak {
+            fill: get-color("weak");
+            opacity: 0.6;
+            transition: opacity 0.3s,
+                        fill 0.3s;
+
+            &:hover {
+                opacity: 1;
+                fill: get-color("primary");
+            }
+        }
+
+        &_primary {
+            fill: get-color("primary");
+        }
+    }
+
+    &_stretch {
+        width: inherit;
+    }
+}
+
+.top {
+    height: 77px;
+    border-bottom: 1px get-color("accent") solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+        width: 198px;
+        height: 44px;
+        box-sizing: border-box;
+    }
+
+    &__input{
+        @include text("primary", 400, 16px, 20px);
+        box-sizing: border-box;
+        font-family: $font-main;
+        width: 288px;
+        height: 41px;
+        border-radius: 20px;
+        border: 1px solid get-color("accent");
+        padding-left: 32px;
+        padding-right: 32px;
+        background-color: get-color_bg("transparent");
+        transition: background-color 1s;
+
+        &:focus {
+            outline: none;
+            background-color: get-color_bg("primary");
+        }
+
+        &::placeholder {
+            @include text("accent", 400, 16px, 20px);
+        }
+    }
+
+    &__menu {
+        display: flex;
+
+        &_mobile {
+            display: none;
+        }
+    }
+}
+
+.menu {
+    box-sizing: border-box;
+
+    &__link {
+        text-decoration: underline;
+
+        &_accent {
+            @include text("accent", 400, 16px, 20px);
+            transition: color 0.3s;
+
+            &:hover {
+                @include text("primary", 400, 16px, 20px);
+            }
+        }
+
+        &_info {
+            @include text("info", 500, 14px, 17px);
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                @include text("primary", 500, 14px, 17px);
+            }
+        }
+    }
+
+    &_row {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: get-gap("desktop");
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &_column {
+        display: flex;
+        flex-flow: column nowrap;
+
+    }
+
+    &_gap12 {
+        gap: 12px;
+    }
+
+    &_gap20 {
+        gap: 24px;
+    }
+}
+
+.footer {
+    display: grid;
+
+    &__item {
+
+        box-sizing: border-box;
+
+        &_col2 {
+            grid-column: span 2;
+        }
+
+        &_cols{
+            grid-column: span 3;
+        }
+
+        &_col4{
+            grid-column: span 4;
+        }
+
+        &_col8{
+            grid-column: span 8;
+        }
+
+        &_display {
+            display: block;
+        }
+
+        &_for {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            column-gap: get-gap("desktop");
+        }
+
+        &_column {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        &_gap12 {
+            row-gap: 12px;
+        }
+    }
+
+    &__header {
+        @include text("primary", 500, 24px, 29px)
+    }
+
+    &_for {
+        grid-template-columns: repeat(12, 1fr);
+        column-gap: get-gap("desktop");
+    }
+}
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    &__header {
+        @include text("primary", 400, 12px, 15px);
+
+        &_pad {
+            padding-bottom: 4px;
+        }
+    }
+
+    &__input {
+        height: 46px;
+        border-radius: 20px;
+        border: 1px solid get-color("weak");
+        font-family: $font-main;
+
+        &_email {
+            @include text("primary", 400, 15px, 18px);
+            padding-left: 25px;
+            padding-right: 25px;
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                @include text("weak", 400, 15px, 18px);
+            }
+        }
+
+        &_button {
+            @include text("primary", 400, 14px, 17px);
+            background-color: get-color-bg("excel");
+            transition: all 0.3s;
+            
+            &:hover {
+                @include text("accent", 400, 14px, 17px);
+                background-color: black;
+            }
+        }
+       
+    }
+
+    &_gap12 {
+        gap: 12px;
+    }
+}
+
+@import "./adaptive/tablet";
+@import "./adaptive/mobile";

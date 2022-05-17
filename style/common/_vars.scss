@@ -1,0 +1,28 @@
+$font-main: 'Montserrat', Sans-serif;
+$font-secondary: 'Poppins', Sans-serif;
+
+$colors: (
+    "primary": #000,
+    "accent": #fff,
+    "info": #888,
+    "weak": #c4c4c4,
+);
+
+$colors-bg: (
+    "primary": #fff,
+    "accent": #F7F6F6,
+    "transparent": transparent,
+    "excel": rgba(222, 215, 215, 0.41),
+);
+
+$widths: (
+    "desktop": 1200px,
+    "tablet": 786px,
+    "mobile": 343px,
+);
+
+$gaps:  (
+    "desktop": 32px,
+    "tablet": 29px,
+    "mobile": 0,
+)

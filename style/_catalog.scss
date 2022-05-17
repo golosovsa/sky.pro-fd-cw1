@@ -1,0 +1,91 @@
+.section {
+    
+    &_catalog {
+        background-image: url(./../img/bg-catalog.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 400px;
+    }
+
+    &__header {
+
+        &_catalog {
+            margin-top: 128px;
+        }
+    }
+
+    &_breadcrumbs {
+        margin-top: 64px;
+        margin-bottom: -32px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        justify-items: center;
+        gap: 16px;
+    }
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+
+    &__link {
+        @include text("primary", 400, 16px, 32px);
+        text-decoration: none;
+
+        &:hover {
+            @include text("primary", 400, 16px, 32px);
+            text-decoration: underline;
+        }
+    }
+
+    &__sep {
+        @include text("primary", 400, 16px, 32px);
+    }
+} 
+
+.sorter {
+    width: 288px;
+    height: 41px;
+
+    &__border {
+        width: 100%;
+        height: 100%;
+        border: 1px solid get-color("primary");
+        border-radius: 20px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__text {
+        @include text("primary", 400, 16px, 20px);
+        padding-left: 14px;
+    }
+
+    &__select {
+        @include text("primary", 400, 16px, 20px);
+        box-sizing: border-box;
+        box-shadow: none;
+        font-family: $font-main;
+        border: none;
+        align-self: stretch;
+        width: 100%;
+        appearance: none;
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__arrow {
+        fill: get-color("primary");
+        padding-right: 22px;
+    } 
+}
